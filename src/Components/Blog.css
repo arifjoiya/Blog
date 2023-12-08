@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  gap: 2rem;
+  font-size: 13pt;
+  border: 1px solid gray;
+}
+
+.item:hover {
+  color: coral;
+}
