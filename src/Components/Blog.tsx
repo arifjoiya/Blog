@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Blog.css'
-import { Button } from 'antd';
 import { Space, Table } from 'antd';
 
-const { Column, ColumnGroup } = Table;
+const { Column } = Table;
 
 interface UserType {
   key: React.Key;

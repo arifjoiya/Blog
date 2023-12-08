@@ -1,7 +1,6 @@
 import React from 'react';
-import { Button, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import Blog from './Components/Blog';
 import Dashboard from './Components/Dashboard';
