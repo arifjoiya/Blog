@@ -25,7 +25,7 @@ const BlogView: React.FC = () => {
       console.log(result.title)
     }
     fetchUser()
-  }, [])
+  }, [id])
 
 
   return (
