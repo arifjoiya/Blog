@@ -18,11 +18,11 @@ const BlogView: React.FC = () => {
   const { id } = useParams()
   useEffect(() => {
     const fetchUser = async () => {
-
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+      const base_url = process.env.REACT_APP_BASE_URL
+      const res = await fetch(`${base_url}/posts/${id}`);
       const result = await res.json();
       setTodos(result);
-      console.log(result.title)
+
     }
     fetchUser()
   }, [id])

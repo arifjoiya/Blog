@@ -21,7 +21,8 @@ const Blog: React.FC = () => {
   useEffect(() => {
     const fetchUser = async () => {
       rand = Math.round(Math.random() * 10);
-      const res = await fetch(`https://jsonplaceholder.typicode.com/users/${rand}/posts`);
+      const base_url = process.env.REACT_APP_BASE_URL
+      const res = await fetch(`${base_url}/users/${rand}/posts`);
       const result = await res.json();
       setTodos(result);
       console.log(result)
