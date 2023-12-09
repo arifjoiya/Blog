@@ -43,7 +43,7 @@ const Blog: React.FC = () => {
           render={() => (
             <Space size="middle">
               <Link to='/post/22' >Edit</Link>
-              <Link to='/post'>Delete</Link>
+              Delete
             </Space>
           )}
         />
