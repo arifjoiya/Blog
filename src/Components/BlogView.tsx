@@ -47,7 +47,7 @@ const BlogView: React.FC = () => {
 
   return (
     <>
-
+      <h2 style={{ textAlign: 'left' }}>Blog Edit</h2>
       <Form
         name="basic"
         form={form}
