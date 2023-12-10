@@ -1,12 +1,12 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './App.css';
 import Blog from './Components/Blog';
 import Dashboard from './Components/Dashboard';
 import MainLayout from './Components/MainLayout';
 import BlogView from './Components/BlogEdit';
 import BlogEdit from './Components/BlogEdit';
+import './App.css';
 
 const App: React.FC = () => {
 
