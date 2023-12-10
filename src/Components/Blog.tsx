@@ -40,10 +40,10 @@ const Blog: React.FC = () => {
         <Column
           title="Action"
           key="action"
-          render={() => (
+          render={(_: any, record: UserType) => (
             <Space size="middle">
-              <Link to='/post/22' >Edit</Link>
-              Delete
+              <Link to={`/post/${record.id}`}>Edit </Link>
+              <a>Delete</a>
             </Space>
           )}
         />
