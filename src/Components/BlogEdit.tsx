@@ -4,7 +4,6 @@ import { Button, Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 
 
-
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
 };
@@ -15,18 +14,8 @@ type FieldType = {
 
 };
 
-interface UserType {
-  key: React.Key;
-  id: number,
-  title: string,
-  userid: string,
-  body: string
-}
-
-
-
 const BlogEdit: React.FC = () => {
-  const [todos, setTodos] = useState<UserType>();
+
   const [msg, setMsg] = useState<string>('');
   const { id } = useParams()
   const [form] = useForm()
@@ -36,12 +25,12 @@ const BlogEdit: React.FC = () => {
       const base_url = process.env.REACT_APP_BASE_URL
       const res = await fetch(`${base_url}/posts/${id}`);
       const result = await res.json();
-      setTodos(result);
       form.setFieldsValue({ id: result.id, title: result.title });
       console.log('blogview')
     }
     fetchUser()
   }, [id])
+
   const onFinish = (values: any) => {
     console.log('Success:', values);
     const dataToUpdate = {
@@ -57,11 +46,11 @@ const BlogEdit: React.FC = () => {
       },
       body: JSON.stringify(dataToUpdate)
     };
+
     const updateUser = async () => {
       const base_url = process.env.REACT_APP_BASE_URL
       const res = await fetch(`${base_url}/posts/${values.id}`, options);
       const result = await res.json();
-      setTodos(result);
       form.setFieldsValue({ id: result.id, title: result.title });
       console.log('updated:', result);
       setMsg('Post Successfully updated')
@@ -100,18 +89,12 @@ const BlogEdit: React.FC = () => {
           <Input />
         </Form.Item>
 
-
-
-
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
-
-
-
     </>
   )
 }
