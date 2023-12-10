@@ -3,9 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Button, Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
+
 
 const onFinishFailed = (errorInfo: any) => {
   console.log('Failed:', errorInfo);
@@ -29,6 +27,7 @@ interface UserType {
 
 const BlogView: React.FC = () => {
   const [todos, setTodos] = useState<UserType>();
+  const [msg, setMsg] = useState<string>('');
   const { id } = useParams()
   const [form] = useForm()
 
@@ -43,11 +42,37 @@ const BlogView: React.FC = () => {
     }
     fetchUser()
   }, [id])
+  const onFinish = (values: any) => {
+    console.log('Success:', values);
+    const dataToUpdate = {
+      id: values.id,
+      title: values.title,
 
+    };
+
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(dataToUpdate)
+    };
+    const updateUser = async () => {
+      const base_url = process.env.REACT_APP_BASE_URL
+      const res = await fetch(`${base_url}/posts/${values.id}`, options);
+      const result = await res.json();
+      setTodos(result);
+      form.setFieldsValue({ id: result.id, title: result.title });
+      console.log('updated:', result);
+      setMsg('Post Successfully updated')
+    }
+    updateUser()
+  };
 
   return (
     <>
       <h2 style={{ textAlign: 'left' }}>Blog Edit</h2>
+      <h3 style={{ textAlign: 'center' }}>{msg}</h3>
       <Form
         name="basic"
         form={form}
