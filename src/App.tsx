@@ -5,7 +5,8 @@ import './App.css';
 import Blog from './Components/Blog';
 import Dashboard from './Components/Dashboard';
 import MainLayout from './Components/MainLayout';
-import BlogView from './Components/BlogView';
+import BlogView from './Components/BlogEdit';
+import BlogEdit from './Components/BlogEdit';
 
 const App: React.FC = () => {
 
@@ -16,7 +17,7 @@ const App: React.FC = () => {
       children: [
         { path: '/', element: <Dashboard /> },
         { path: '/dashboard', element: <Blog /> },
-        { path: 'post/:id', element: <BlogView /> }
+        { path: 'post/:id', element: <BlogEdit /> }
       ]
     }
   ])

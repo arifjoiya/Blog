@@ -25,7 +25,7 @@ interface UserType {
 
 
 
-const BlogView: React.FC = () => {
+const BlogEdit: React.FC = () => {
   const [todos, setTodos] = useState<UserType>();
   const [msg, setMsg] = useState<string>('');
   const { id } = useParams()
@@ -72,7 +72,7 @@ const BlogView: React.FC = () => {
   return (
     <>
       <h2 style={{ textAlign: 'left' }}>Blog Edit</h2>
-      <h3 style={{ textAlign: 'center' }}>{msg}</h3>
+      <h3 style={{ textAlign: 'center', color: 'green' }}>{msg}</h3>
       <Form
         name="basic"
         form={form}
@@ -115,4 +115,4 @@ const BlogView: React.FC = () => {
     </>
   )
 }
-export default BlogView;
+export default BlogEdit;
