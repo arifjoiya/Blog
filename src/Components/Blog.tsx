@@ -38,7 +38,7 @@ const Blog: React.FC = () => {
       <h2>Blog</h2>
       <Table dataSource={todos}>
 
-        <Column title="ID" dataIndex="id" key="id" />
+        <Column title="Id" dataIndex="id" key="id" />
 
         <Column
           title="Title"
