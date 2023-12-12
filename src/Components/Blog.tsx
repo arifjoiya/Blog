@@ -41,7 +41,7 @@ const Blog: React.FC = () => {
         <Column title="ID" dataIndex="id" key="id" />
 
         <Column
-          title="Action"
+          title="Title"
           key="action"
           render={(_: any, record: UserType) => (
             <Space size="middle">
