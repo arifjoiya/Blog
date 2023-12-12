@@ -13,7 +13,10 @@ interface UserType {
   body: string
 }
 let rand: number;
-
+const imgStyle: React.CSSProperties = {
+  display: 'block',
+  width: 173,
+};
 
 const Blog: React.FC = () => {
   const [todos, setTodos] = useState<UserType[]>([]);
@@ -36,7 +39,22 @@ const Blog: React.FC = () => {
       <Table dataSource={todos}>
 
         <Column title="ID" dataIndex="id" key="id" />
-        <Column title="TITLE" dataIndex="title" key="title" />
+
+        <Column
+          title="Action"
+          key="action"
+          render={(_: any, record: UserType) => (
+            <Space size="middle">
+              <Link to={`/post/detail/${record.id}`}> <img
+                alt="avatar"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+                style={imgStyle}
+              />{record.title} </Link>
+
+
+            </Space>
+          )}
+        />
         <Column
           title="Action"
           key="action"
@@ -44,6 +62,7 @@ const Blog: React.FC = () => {
             <Space size="middle">
               <Link to={`/post/${record.id}`}>Edit </Link>
               <a>Delete</a>
+
             </Space>
           )}
         />

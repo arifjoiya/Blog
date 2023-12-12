@@ -10,7 +10,6 @@ import { Layout, Menu, Button, theme } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
 
 
-
 const { Header, Sider, Content } = Layout;
 interface UserType {
   id: number,
